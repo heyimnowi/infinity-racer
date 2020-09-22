@@ -6,14 +6,11 @@ public class PlayerCollision : MonoBehaviour {
     public PlayerMovement movement;
     public GameManager gameManager;
     void OnCollisionEnter(Collision collisionInfo) {
-
+            Debug.Log("Hit something: " + collisionInfo.collider.name);
         if (collisionInfo.collider.tag == "Obstacle") {
+            Debug.Log("Hit obstacle");
             movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
         }
-    }
-
-    // Update is called once per frame
-    void Update() {
     }
 }
